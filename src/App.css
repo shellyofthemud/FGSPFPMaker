@@ -1,0 +1,26 @@
+* {
+  /* border: 1px solid green; */
+}
+
+div.vstack {
+  background-color: #ccca;
+  padding: 30px 50px;
+  border-radius: 25px; 
+}
+
+div.vstack > div {
+  padding: 20px;
+  border-radius: 20px;
+}
+
+main {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  padding: 25vh 50px;
+}
+
+form {
+  line-height: 32px;
+}
