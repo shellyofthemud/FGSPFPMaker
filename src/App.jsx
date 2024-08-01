@@ -43,7 +43,7 @@ function createBackgroundSVG(title, name, bgColor, fgColor) {
 }
 
 export default function App() {
-  const [image, setImage] = useState('/public/blank_head.jpg');
+  const [image, setImage] = useState('/blank_head.jpg');
   const [username, setUsername] = useState('fill-in-the-blank');
   const [title, setTitle] = useState('COMRADE');
   const [bgColor, setBgColor] = useState('#ff0000ff');
