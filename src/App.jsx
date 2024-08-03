@@ -25,6 +25,26 @@ function rasterizeSVG(svg) {
 }
 
 function createBackgroundSVG(title, name, bgColor, fgColor) {
+  let currentBrowser;
+  let side;
+  if (window.navigator.userAgent.indexOf('Chrome') !== -1) { currentBrowser = 'Google Chrome'; }
+  else if (window.navigator.userAgent.indexOf('Firefox') !== -1) { currentBrowser = 'Mozilla Firefox'; }
+  else if (window.navigator.userAgent.indexOf('MSIE') !== -1) { currentBrowser = 'Internet Exployer'; }
+  else if (window.navigator.userAgent.indexOf('Edge') !== -1) { currentBrowser = 'Edge'; }
+  else if (window.navigator.userAgent.indexOf('Safari') !== -1) { currentBrowser = 'Safari'; }
+  else if (window.navigator.userAgent.indexOf('Opera') !== -1) { currentBrowser = 'Opera'; }
+  else if (window.navigator.userAgent.indexOf('Opera') !== -1) { currentBrowser = 'YaBrowser'; }
+
+
+  switch (currentBrowser) {
+    case "Mozilla Firefox":
+      side = "left";
+      break;
+
+    default:
+      side = "right";
+  }
+
   return (
     <>
       <svg viewBox="0 0 100 100" height="500" width="500" style={{height:500, width:500, border:0}}>
@@ -34,8 +54,8 @@ function createBackgroundSVG(title, name, bgColor, fgColor) {
         </defs>
         <circle cx="50" cy="50" r="47" fill={fgColor} stroke={bgColor} strokeWidth="5" />
         <text fill={ bgColor } textAnchor="middle">
-          <textPath id="topText" fontSize="7.7" fontFamily="arial" fontWeight="bold" href="#topPath" startOffset="2" side="right">{title} {name}</textPath>
-          <textPath id="bottomText" fontSize="8.5" fontFamily="Georgia" href="#bottomPath" startOffset="2" side="right">FENTANYL GOONING SQUAD</textPath>
+          <textPath id="topText" fontSize="7.7" fontFamily="arial" fontWeight="bold" href="#topPath" startOffset="2" side={side}>{title} {name}</textPath>
+          <textPath id="bottomText" fontSize="8.5" fontFamily="Georgia" href="#bottomPath" startOffset="2" side={side}>FENTANYL GOONING SQUAD</textPath>
         </text>
       </svg>
     </>
