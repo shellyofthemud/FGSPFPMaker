@@ -21,8 +21,8 @@ export default function ExpandableColorPicker(props) {
     <div>
         <div style={{height:'20px',width:'100%',display:'block',backgroundColor:props.color,borderRadius:'10px',cursor:'pointer'}} onClick={(e) => setOpen(!open)} ></div>
       {open && (
-        <div ref={ref} style={{position:'absolute',width:'fit-content'}}>
-        <SketchPicker onChange={(e) => { props.setColor(e.hex)} } color={props.color} />
+        <div ref={ref} style={{position:'absolute'}}>
+        <SketchPicker width='235px' onChange={(e) => { props.setColor(e.hex)} } color={props.color} />
       </div>
       )}
     </div>
