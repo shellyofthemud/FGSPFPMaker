@@ -45,6 +45,8 @@ function createBackgroundSVG(title, name, bgColor, fgColor) {
       side = "right";
   }
 
+
+
   return (
     <>
       <svg viewBox="0 0 100 100" height="500" width="500" style={{height:500, width:500, border:0}}>
@@ -76,7 +78,7 @@ export default function App() {
     let ctx = canv.getContext("2d");
     console.log(canv)
 
-    ctx.clearRect(0, 0, canv.width, canv.height);
+    // ctx.clearRect(0, 0, canv.width, canv.height);
     let svg = rasterizeSVG(createBackgroundSVG((title == "Create your own!") ? customTitle : title, username, bgColor, fgColor))
 
     svg.decode().then(() => {
@@ -91,8 +93,6 @@ export default function App() {
         ctx.clip();
         ctx.drawImage(i, 50, 50, 240, 240);
         ctx.restore();
-
-        
       })
     })
   }
@@ -111,7 +111,7 @@ export default function App() {
     <main>
       <Stack>
         <div style={{textAlign:"center"}}>
-          <canvas ref={canvasRef} width={340} height={340} />
+          <canvas style={{width:'100%',maxWidth:'340px'}} ref={canvasRef} width={340} height={340} />
         </div>
         <div style={{backgroundColor:"#161d2d"}}>
           <Form id="OptionsForm">
@@ -177,7 +177,7 @@ export default function App() {
                 <Form.Label>3) Type your username: </Form.Label>
               </Col>
               <Col>
-                <Form.Control width="90%" onChange={(e) => { setUsername(e.target.value); }} />
+                <Form.Control maxLength={15} width="90%" onChange={(e) => { setUsername(e.target.value); }} />
               </Col>
             </Row>
             

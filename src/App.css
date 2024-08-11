@@ -2,16 +2,9 @@ body {
   background-color: #0e1525;
 }
 
-main {
-  display: flex;
-  padding: 25vh 50px;
-  justify-content: center;
-  width: 90%;
-}
-
 div.vstack {
   background-color: #1c2333;
-  padding: 30px 50px;
+  padding: 10px 10px;
   border-radius: 25px;
   color: #fff;
 }
@@ -22,21 +15,14 @@ div.vstack > div {
 }
 
 div.col {
-  display: block;
   width: 48%;
-  margin: 0;
   text-align: center;
   height: inherit;
-  padding: 0;
-  vertical-align: middle;
-
-  * {
-    width: 100%;
-  }
+  padding: 2.5px;
 }
 
 div.col > * {
-  margin: 5px;
+  width: 100%;
 }
 
 div.col:nth-child(2n+1) {
@@ -45,17 +31,15 @@ div.col:nth-child(2n+1) {
 
 div.row {
   display: flex;
-  text-align: center;
   background-color: #3c445c;
   margin: 10px 0;
   border-radius: 10px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px ;
   vertical-align: middle;
 }
 
 form {
   line-height: 32px;
-  min-width: 600px;
 }
 
 input.form-control {
@@ -75,24 +59,22 @@ form#OptionsForm {
   line-height: unset;
 }
 
-@media screen and (max-width: 500px) {
-  main {
-    padding: 50px 5%;
-  }
-
-  div.vstack {
-    padding: 5px 10px;
-  }
-
-  label.form-label {
-    line-height: 16px;
+@media screen and (min-width: 600px) {
+  div#root {
+    min-width: 600px;
+    max-width: 800px;
+    width: 60vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
   }
 }
 
-@media screen and (min-width: 500px) {
-  div.vstack {
-    margin-left: auto;
-    margin-right: auto;
+@media screen and (max-width: 500) {
+  div#root {
+    /* min-width: 75vw; */
+    max-width: 80vh;
+    max-height: 100vh;
   }
-
 }
